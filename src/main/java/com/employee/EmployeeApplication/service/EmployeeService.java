@@ -30,13 +30,22 @@ public class EmployeeService {
     }
 
     public void updateEmployee(Employee employee) {
-        List<Employee> tempEmployee = new ArrayList<>();
+        ArrayList<Employee> tempEmployee = new ArrayList<>();
         for (Employee emp: employeeList) {
             if (emp.getEmployeeId() == employee.getEmployeeId()) {
                 emp.setEmployeeName(employee.getEmployeeName());
                 emp.setEmployeeCity(employee.getEmployeeCity());
             }
             tempEmployee.add(emp);
+        }
+        this.employeeList = tempEmployee;
+    }
+    public void deleteEmployee(int id) {
+        ArrayList<Employee> tempEmployee = new ArrayList<>();
+        for (Employee emp: employeeList) {
+            if (emp.getEmployeeId() == id )
+                continue;
+             tempEmployee.add(emp);
         }
         this.employeeList = tempEmployee;
     }
